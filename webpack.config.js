@@ -23,6 +23,11 @@ module.exports={
     resolve:{
         //root and alias used for shortcutting naming on require
         root: __dirname,
+        //moudle Directories make it so you dont have to make an alias for every file
+        modulesDirectories: [
+            'node_modules',
+            "./app/components"
+        ],
         alias: {
             applicationStyles: 'app/styles/app.scss'
             //ex:
