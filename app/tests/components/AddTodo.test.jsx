@@ -30,6 +30,8 @@ describe('AddTodo', () => {
         var todoText = "";
         
         addTodo.refs.todoText.value = todoText;
+        //[0] is the DOM node, without jquery.
+        //without [0] test would fail bc its looking for jquery element 'form'
         TestUtils.Simulate.submit($el.find('form')[0]);
         
         expect(spy).toNotHaveBeenCalled();
