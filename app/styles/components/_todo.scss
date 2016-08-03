@@ -1,0 +1,33 @@
+.todo{
+    align-items: center;
+    cursor: pointer;
+    display:flex;
+    padding: 1rem;
+    transition: background .3s ease;
+    
+    //p and input are siblings, but children of todo
+    p, input{
+        margin: 0;
+    }
+    
+    > :first-child{
+        margin-right: 1rem;
+    }
+    
+    // & makes pseudo class selection easier,
+    // &:hover is samething as .todo:hover
+    &:hover{
+        background: #f0f0f0;
+    }
+}
+
+.todo__subtext{
+    color: #999;
+}
+
+.todo__completed{
+    p, .todo-subtext{
+        color: $light-color;
+        text-decoration: line-through;
+    } 
+}

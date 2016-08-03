@@ -7,6 +7,12 @@ var TodoList = React.createClass({
         
         //use arrow function so 'this' will be set to TodoList not renderTodos
         var renderTodos = () => {
+            if(todos.length === 0 ){
+                return (
+                    <p className="container__message">Nothing to do</p>
+                );
+            }
+            
             return todos.map((todo) => {
                 return(
                     //onToggle is a prop being passed down from parent(todoApp) component
