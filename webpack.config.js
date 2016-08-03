@@ -26,7 +26,8 @@ module.exports={
         //moudle Directories make it so you dont have to make an alias for every file
         modulesDirectories: [
             'node_modules',
-            "./app/components"
+            "./app/components",
+            './app/api'
         ],
         alias: {
             applicationStyles: 'app/styles/app.scss'
