@@ -1,5 +1,6 @@
 var React = require("react");
 var uuid = require("node-uuid");
+var moment = require("moment");
 
 var TodoList = require("TodoList");
 var AddTodo = require("AddTodo");
@@ -24,7 +25,9 @@ var TodoApp = React.createClass({
                {
                    id: uuid(),
                    text: text,
-                   completed: false
+                   completed: false,
+                   createdAt: moment().unix(),
+                   completedAt: undefined
                }
             ]
        });
@@ -41,6 +44,7 @@ var TodoApp = React.createClass({
                //turns completed to opposite boolean
                //if completed is true, !todo.completed will be false and vice versa
                todo.completed = !todo.completed;
+               todo.completedAt = todo.completed ? moment().unix() : undefined;
            }
            //if todo.id doesnt equal the id being passed in parameter, just return it
            return todo;
