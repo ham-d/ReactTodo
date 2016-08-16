@@ -1,9 +1,13 @@
 var React = require("react");
-var Todo = require("Todo");
+var {connect} = require("react-redux");
 
-var TodoList = React.createClass({
+// var Todo = require("Todo");
+import Todo from 'Todo';
+var todoAPI = require("TodoAPI");
+
+export var TodoList = React.createClass({
     render: function(){
-        var {todos} = this.props;
+        var {todos, showCompleted, searchText} = this.props;
         
         //use arrow function so 'this' will be set to TodoList not renderTodos
         var renderTodos = () => {
@@ -13,11 +17,13 @@ var TodoList = React.createClass({
                 );
             }
             
-            return todos.map((todo) => {
+            return todoAPI.filterTodos(todos, showCompleted, searchText).map((todo) => {
                 return(
                     //onToggle is a prop being passed down from parent(todoApp) component
                     //we are passing that prop to Todo component as onToggle
-                    <Todo key={todo.id} {...todo} onToggle={this.props.onToggle}/>
+                    //for not using redux:
+                    //<Todo key={todo.id} {...todo} onToggle={this.props.onToggle}/>
+                    <Todo key={todo.id} {...todo} />
                 );
             });
         };
@@ -30,4 +36,8 @@ var TodoList = React.createClass({
     }
 });
 
-module.exports = TodoList;
+//connect is a function that is called with the component.
+//takes in state param and returns whatever porp we need from state.
+export default connect((state) => {
+    return state;
+})(TodoList);

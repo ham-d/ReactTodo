@@ -4,19 +4,26 @@ export var setSearchText = (searchText) => {
         //searchText: searchText
         //same as searchText(es6)
         searchText
-    }
-}
+    };
+};
 
 export var toggleShowCompleted = () => {
     return {
         type: 'TOGGLE_SHOW_COMPLETED'
-    }
-}
+    };
+};
 
 export var addTodo = (text) => {
     return{
         type: 'ADD_TODO',
         text 
+    };
+};
+
+export var addTodos = (todos) => {
+    return {
+        type: 'ADD_TODOS',
+        todos
     };
 };
 
