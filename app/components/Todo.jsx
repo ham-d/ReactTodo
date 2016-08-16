@@ -17,7 +17,7 @@ export var Todo = React.createClass({
                 timestamp = completedAt;
             }
             
-            return message + moment.unix(timestamp).format('MMM Do YYYY @ h:mn a');
+            return message + moment.unix(timestamp).format('MMM Do YYYY @ h:mm a');
         };
         
         //reason why we pass a function instead of the onToggle prop straight to onClick or onChange:
