@@ -27,9 +27,9 @@ export var AddTodo = React.createClass({
                     <button className="button expanded">Add Todo</button>
                 </form>
             </div>
-        )
+        );
     }
-})
+});
 
 // module.exports = AddTodo;
 export default connect()(AddTodo);

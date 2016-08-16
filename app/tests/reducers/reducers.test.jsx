@@ -11,6 +11,7 @@ describe('Reducers', () => {
                 type: 'SET_SEARCH_TEXT',
                 searchText: 'dog'
             };
+            
             var res = reducers.searchTextReducer('', action);
             //deepfreeze
             //var res = reducers.searchTextReducer(df(''), df(action));
@@ -31,13 +32,13 @@ describe('Reducers', () => {
         });
     });
     
-    describe('todoReducer', () => {
+    describe('todosReducer', () => {
         it('should add new todo', () => {
             var action = {
                 type: 'ADD_TODO',
                 text: 'Walk the dog'
             };
-            var res = reducers.todoReducer(df([]), df(action));
+            var res = reducers.todosReducer(df([]), df(action));
             expect(res.length).toEqual(1);
             expect(res[0].text).toEqual(action.text);
         });
@@ -54,7 +55,7 @@ describe('Reducers', () => {
                 type: 'TOGGLE_TODO',
                 id: '123'
             };
-            var res = reducers.todoReducer(df(todos), df(action));
+            var res = reducers.todosReducer(df(todos), df(action));
             
             expect(res[0].completed).toEqual(false);
             expect(res[0].completedAt).toEqual(undefined);
@@ -66,7 +67,7 @@ describe('Reducers', () => {
                 text: 'anything',
                 completed: false,
                 completedAt: undefined,
-                createdAt: 3300
+                createdAt: 33000
             }];
             var action = {
                 type: "ADD_TODOS",
@@ -76,7 +77,7 @@ describe('Reducers', () => {
             var res = reducers.todosReducer(df([]), df(action));
             
             expect(res.length).toEqual(1);
-            expect(res[0].toEqual(todos[0]));
+            expect(res[0]).toEqual(todos[0]);
         });
     });
 });

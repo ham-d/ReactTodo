@@ -19,7 +19,7 @@ describe('AddTodo', () => {
             text: todoText
         }
         var spy = expect.createSpy();
-        var addTodo = TestUtils.renderIntoDocument(<AddTodo onAddTodo={spy}/>);
+        var addTodo = TestUtils.renderIntoDocument(<AddTodo dispatch={spy}/>);
         var $el = $(ReactDOM.findDOMNode(addTodo));
         
         addTodo.refs.todoText.value = todoText;
@@ -29,10 +29,10 @@ describe('AddTodo', () => {
     });
     
     it('should not dispatch ADD_TODO when invalid todo text', () => {
+        var todoText = "";
         var spy = expect.createSpy();
         var addTodo = TestUtils.renderIntoDocument(<AddTodo dispatch={spy}/>);
         var $el = $(ReactDOM.findDOMNode(addTodo));
-        var todoText = "";
         
         addTodo.refs.todoText.value = todoText;
         //[0] is the DOM node, without jquery.
