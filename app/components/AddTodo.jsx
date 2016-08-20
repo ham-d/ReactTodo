@@ -10,7 +10,9 @@ export var AddTodo = React.createClass({
         
         if(todoText.length > 0) {
             this.refs.todoText.value = '';
-            dispatch(actions.addTodo(todoText));
+            dispatch(actions.startAddTodo(todoText));
+            //non-firebase
+            //dispatch(actions.addTodo(todoText));
             //non-redux:
             //this.props.onAddTodo(todoText);
         } else {

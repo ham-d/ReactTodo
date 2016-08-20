@@ -40,7 +40,9 @@ export var Todo = React.createClass({
             <div className={todoClassName} onClick={()=>{
                 //if not using redux:
                 //this.props.onToggle(id)
-                dispatch(actions.toggleTodo(id));
+                dispatch(actions.startToggleTodo(id, !completed));
+                //non-firebase
+                //dispatch(actions.toggleTodo(id));
                 }}> 
                 <div>
                     <input type="checkbox" checked={completed} readOnly/>

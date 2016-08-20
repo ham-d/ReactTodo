@@ -11,13 +11,14 @@ export var TodoList = React.createClass({
         
         //use arrow function so 'this' will be set to TodoList not renderTodos
         var renderTodos = () => {
-            if(todos.length === 0 ){
+            var filteredTodos = todoAPI.filterTodos(todos, showCompleted, searchText);
+            if(filteredTodos.length === 0 ){
                 return (
                     <p className="container__message">Nothing to do</p>
                 );
             }
             
-            return todoAPI.filterTodos(todos, showCompleted, searchText).map((todo) => {
+            return filteredTodos.map((todo) => {
                 return(
                     //onToggle is a prop being passed down from parent(todoApp) component
                     //we are passing that prop to Todo component as onToggle
