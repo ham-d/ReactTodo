@@ -6,7 +6,9 @@ var $ = require("jquery");
 var {Provider} = require("react-redux");
 
 var configureStore = require("configureStore");
-var TodoApp = require("TodoApp");
+// var TodoApp = require("TodoApp");
+//{TodoApp} means import the function. in this case, the unconnected TodoApp
+import {TodoApp} from 'TodoApp';
 // var TodoList = require("TodoList");
 import TodoList from 'TodoList';
 
