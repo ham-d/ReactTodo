@@ -99,7 +99,7 @@ describe('Reducers', () => {
             
             var res = reducers.todosReducer(df(todos), df(action));
             
-            expect(res.length).toEqual(1);
+            expect(res.length).toEqual(0);
         });
     });
     

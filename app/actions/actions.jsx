@@ -57,7 +57,7 @@ export var startAddTodo = (text) => {
            completedAt: null
         };
         var uid = getState().auth.uid;
-        var todoRef = firebaseRef.child(`todos/${uid}/todos`).push(todo);
+        var todoRef = firebaseRef.child(`users/${uid}/todos`).push(todo);
         
         return todoRef.then(() => {
             dispatch(addTodo({
